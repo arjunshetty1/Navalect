@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Import Libre Baskerville for Naval/Claude-style serif look */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +26,82 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navalism-specific styles */
+.font-serif {
+  font-family: 'Libre Baskerville', serif;
+}
+
+/* Ensure smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Remove input autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--background) inset !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+}
+
+/* Adding smooth loading animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Dark mode adjustments for Navalism */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    background-color: var(--background);
+  }
+  
+  .bg-gray-50 {
+    background-color: #1a1a1a;
+  }
+  
+  .bg-gray-100 {
+    background-color: #252525;
+  }
+  
+  .text-gray-900 {
+    color: #ededed;
+  }
+  
+  .text-gray-800 {
+    color: #d4d4d4;
+  }
+  
+  .text-gray-700 {
+    color: #c7c7c7;
+  }
+  
+  .text-gray-600 {
+    color: #adadad;
+  }
+  
+  .text-gray-500 {
+    color: #949494;
+  }
+  
+  .text-gray-400 {
+    color: #737373;
+  }
+  
+  .border-gray-900 {
+    border-color: #ededed;
+  }
+  
+  .border-gray-200, .border-gray-100 {
+    border-color: #2e2e2e;
+  }
 }
